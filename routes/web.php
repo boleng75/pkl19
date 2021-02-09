@@ -56,3 +56,5 @@ Route::resource('kasus2',Kasus2Controller::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::view('select','livewire.home');

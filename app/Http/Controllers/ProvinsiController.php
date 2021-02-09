@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\provinsi;
 use Illuminate\Http\Request;
 use App\Http\Controller\DB;
+
 class ProvinsiController extends Controller
 {
     public function index()
@@ -12,7 +13,7 @@ class ProvinsiController extends Controller
         $provinsi = Provinsi::all();
         return view('provinsi.index',compact('provinsi'));
     }
-
+               
     public function create()
     {
         return view('provinsi.create');

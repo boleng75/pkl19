@@ -10,20 +10,16 @@
                 <div class="card-body">
                 <form action="{{route('kasus2.store')}}" method="POST">
                 @csrf
+                    @livewireStyles
+                @livewire('select')
+                @livewireScripts
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-            
-                <div class="mb-3">
-                        <label for="" class="form-label">Rw</label>
-                        <select name="id_rw" class="form-control" id="">
-                       @foreach($rw as $data)
-                       <option value="{{$data->id}}">{{$data->nama_rw}}</option>
-                       @endforeach
-                       </select>
-                    </div>
+                    
                     <div class="mb-3">
                         <label for="" class="form-label">Jumlah Positif</label>
                         <input type="number" name="jumlah_positif" class="form-control" id="">

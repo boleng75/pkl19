@@ -4,17 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Kelurahan;
 
-class rw extends Model
+class RW extends Model
 {
-    protected $fillable = ['nama_rw','id_kelurahan'];
-    public $timestamps = true;
+    protected $fillable = ['nama','id_kelurahan'];
+    public $timetamps = true;
 
     public function kelurahan(){
         return $this->belongsTo('App\Models\kelurahan','id_kelurahan');
     }
 
     public function kasus2(){
-        return $this->hasMany('App\Models\kasus2','id_rw');
+        return $this->hasMany('App\Models\Kasus2','id_rw');
     }
 }

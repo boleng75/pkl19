@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controller\DB;
+use App\Models\provinsi;
+use App\Models\kota;
+use App\Models\kecamatan;
+use App\Models\kelurahan;
 use App\Models\rw;
 use App\Models\kasus2;
 use Illuminate\Http\Request;
@@ -25,12 +29,12 @@ class Kasus2Controller extends Controller
     
     public function store(Request $request)
     {
-        $kasus2 = new Kasus2;
+        $kasus2 = new Kasus2();
         $kasus2->id_rw = $request->id_rw;
-        $kasus2->jumlah_positif = $request->jumlah_positif;
-        $kasus2->jumlah_meninggal = $request->jumlah_meninggal;
-        $kasus2->jumlah_sembuh = $request->jumlah_sembuh;
-        $kasus2->tanggal = $request->tanggal;
+        $kasus2->jumlah_positif     = $request->jumlah_positif;
+        $kasus2->jumlah_meninggal   = $request->jumlah_meninggal;
+        $kasus2->jumlah_sembuh      = $request->jumlah_sembuh;
+        $kasus2->tanggal            = $request->tanggal;
         $kasus2->save();
         return redirect()->route('kasus2.index')->with(['message' => 'Data Kasus2 Berhasil disimpan']);
     }
