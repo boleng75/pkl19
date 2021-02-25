@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\RW;
 
-class Kasus2 extends Model
+class kasus2 extends Model
 {
-    protected $fillable = ['jml_positif','jml_meninggal','jml_sembuh','tanggal','id_rw'];
-    public $timetamps = true;
+    protected $fillable = ['jumlah_positif','jumlah_meninggal','jumlah_sembuh','id_rw'];
+    public $timestamps = true;
 
     public function rw(){
-        return $this->belongsTo('App\Models\RW', 'id_rw');
-    }
+        return $this->belongsTo('App\Models\rw','id_rw');
+    } 
 }

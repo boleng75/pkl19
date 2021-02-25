@@ -29,6 +29,7 @@
                        @endforeach
                        </select> 
                     </div> -->
+                    <div class="card-header"><center><b>{{ __('Data Pemeriksaan') }}</b></center></div>
                     <div class="mb-3">
                         <label for="" class="form-label">Jumalah Positif</label>
                         <input type="number" name="jumlah_positif"  value="{{$kasus2->jumlah_positif}}" class="form-control" id="">

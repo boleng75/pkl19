@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.welcome');
 });
+// Route Halaman admin utama
+use App\Http\Controllers\UtamaController;
+Route::resource('testing', UtamaController::class);
 
 Auth::routes();
 
@@ -46,7 +49,7 @@ use App\Http\Controllers\KecamatanController;
 Route::resource('kecamatan',KecamatanController::class);
 // KELURAHAN
 use App\Http\Controllers\KelurahanController;
-Route::resource('kelurahan',KelurahanController::class);
+Route::resource('kelurahan', KelurahanController::class);
 // RW
 use App\Http\Controllers\RwController;
 Route::resource('rw',RwController::class);
@@ -58,3 +61,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('select','livewire.home');
+// front
+use App\Http\Controllers\FrontendController;
+Route::resource('/',FrontendController::class);

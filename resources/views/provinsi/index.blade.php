@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                  <table class="table">
+                  <table class="table-responsive" id="datatable">
                     <thead>
                       <tr>
                         <th >No</th>

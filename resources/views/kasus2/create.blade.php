@@ -19,7 +19,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+                    <div class="card-header"><center><b>{{ __('Data Pemeriksaan') }}</b></center></div>
                     <div class="mb-3">
                         <label for="" class="form-label">Jumlah Positif</label>
                         <input type="number" name="jumlah_positif" class="form-control" id="">

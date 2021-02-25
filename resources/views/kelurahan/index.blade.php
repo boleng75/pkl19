@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                  <table class="table">
+                  <table class="table-responsive" id="datatable">
                     <thead>
                       <tr>
                         <th scope="col">No</th>

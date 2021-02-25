@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 use App\Http\Controller\DB;
 use App\Models\kecamatan;
-use App\Models\kelurahan;
+use App\Models\kelurahan;   
 use Illuminate\Http\Request;
 
 class KelurahanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function index()
     {
@@ -25,6 +29,16 @@ class KelurahanController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_kelurahan' => 'required|max:10|unique:kelurahans',
+            'nama_kelurahan' => 'required|unique:kelurahans'
+        ],   [
+            'kode_kelurahan.required' => 'Kode kelurahan Tidak Boleh kosong',
+            'Kode_kelurahan.max' => 'Kode maksimal 10 karakter',
+            'kode_kelurahan.unique' => 'kode kelurahan Sudah Terdaftar',
+            'nama_kelurahan.required' => 'Nama kelurahan Tidak Boleh Kosong',
+            'nama_kelurahan.unique' => 'Nama kelurahan Sudah Terdaftar'
+        ]);
         $kelurahan = new kelurahan;
         $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->kode_kelurahan = $request->kode_kelurahan;

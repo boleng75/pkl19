@@ -23,6 +23,7 @@
                         <label for="" class="form-label">Rw</label>
                         <input type="text" name="nama_rw"  value="{{$kasus2->rw->nama_rw}}" class="form-control" id="" readonly>
                     </div> -->
+                    <div class="card-header"><center><b>{{ __('Data Pemeriksaan') }}</b></center></div>
                     <div class="mb-3">
                         <label for="" class="form-label">Jumlah Positif</label>
                         <input type="text" name="jumlah_positif"  value="{{$kasus2->jumlah_positif}}" class="form-control" id="" readonly>

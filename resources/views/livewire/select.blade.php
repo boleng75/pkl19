@@ -2,7 +2,7 @@
     <div class="form-group">
         <label for="state" class="form-label ">Provinsi</label>
 
-        <div class="col-md-6">
+        <div class="col-md-15">
             <select wire:model="selectedState" class="form-control">
                 <option value="" selected>Pilih Provinsi</option>
                 @foreach($provinsi as $data)
@@ -16,7 +16,7 @@
         <div class="form-group ">
             <label for="city" class="col-md-4 col-form-label ">Kota</label>
 
-            <div class="col-md-6">
+            <div class="col-md-15">
                 <select wire:model="selectedState2" class="form-control" name="city_id">
                     <option value="" selected>Pilih Kota</option>
                     @foreach($kota as $data2)
@@ -31,7 +31,7 @@
         <div class="form-group ">
             <label for="city" class="col-md-4 col-form-label ">Kecamatan</label>
 
-            <div class="col-md-6">
+            <div class="col-md-15">
                 <select wire:model="selectedState3" class="form-control" name="city_id">
                     <option value="" selected>Pilih Kecamatan</option>
                     @foreach($kecamatan as $data3)
@@ -46,7 +46,7 @@
         <div class="form-group ">
             <label for="city" class="form-label ">Kelurahan</label>
 
-            <div class="col-md-6">
+            <div class="col-md-15">
                 <select wire:model="selectedState4" class="form-control" name="city_id">
                     <option value="" selected>Pilih Kelurahan</option>
                     @foreach($kelurahan as $data4)
@@ -61,7 +61,7 @@
         <div class="form-group ">
             <label for="city" class="col-md-4 col-form-label ">RW/RT</label>
 
-            <div class="col-md-6">
+            <div class="col-md-15">
                 <select wire:model="selectedState4" class="form-control" name="id_rw">
                     <option value="" selected>Pilih rw</option>
                     @foreach($rw as $data5)

@@ -4,23 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Kota;
 
-class Kecamatan extends Model
+class kecamatan extends Model
 {
-    use HasFactory;
-    
-    protected $table = "kecamatans";
-    protected $fillable = ['id', 'nama_kecamatan', 'kode_kecamatan','id_kota'];
+    protected $fillable = ['nama_kecamatan','kode_kecamatan','id_kota'];
     public $timestamps = true;
 
-    public function kota()
-    {
-        return $this->belongsTo('App\Models\Kota', 'id_kota');
+    public function kota(){
+        return $this->belongsTo('App\Models\kota','id_kota');
     }
 
-    public function kelurahan()
-    {
-        return $this->hasMany('App\Models\Kelurahan', 'id_kecamatan');
+    public function kelurahan(){
+        return $this->hasMany('App\Models\kelurahan','id_kecamatan');
     }
 }

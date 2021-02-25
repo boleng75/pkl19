@@ -68,8 +68,8 @@
                                             <form action="{{route('kasus2.destroy',$data->id)}}"  method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <center>  <a href="{{route('kasus2.show',$data->id)}}" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></a></i>
-                                    <a href="{{route('kasus2.edit',$data->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></a></i>
+                                            <!-- <center>  <a href="{{route('kasus2.show',$data->id)}}" class="btn btn-outline-success btn-sm"><i class="fa fa-eye"></a></i>
+                                    <a href="{{route('kasus2.edit',$data->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"></a></i> -->
                                     <button type="submit"  class="btn btn-outline-danger btn-sm" onclick="return confirm('Yakin Hapus?')"><i class="fa fa-trash-alt">
                                             </form>
                                         </tr>
