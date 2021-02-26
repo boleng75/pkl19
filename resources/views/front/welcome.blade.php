@@ -142,7 +142,7 @@
             <div class="count-box">
               <i class="icofont-globe"></i> <br>
               <h5><p>Positif di Dunia</p></h5>
-              <span data-toggle="counter-up"><?php echo $posglobal['value'] ?></span>
+              <!-- <span data-toggle="counter-up"></span> -->
               <p>Orang</p>
             </div>
           </div>
@@ -195,7 +195,7 @@
                          <center>{{ number_format($data->jumlah_sembuh)}}</center>
                     </td>
                     <td>
-                         <center>{{  ($data->jumlah_meninggal)}}</center>
+                         <center>{{ number_format($data->jumlah_meninggal)}}</center>
                     </td>
                     </tr>
                   @endforeach
@@ -211,49 +211,7 @@
      
     <!-- ======== End Table Section Global ======= -->
     <!-- ======== Table Section Global ======= -->
-    <section id="global" class="global">
-      <div class="container">
-
-        <div class="section-title" data-aos="zoom-out">
-          <h2>Data Kasus Global</h2>
-        </div>
-
-        <div class="row content" data-aos="fade-up">
-              
-            <div class="table-wrapper-scroll-y my-custom-scrollbar col-lg-12">
-
-              <table class="table table-bordered table-striped mb-0 " width="100%">
-                <thead>
-                  <tr>
-                    <th scope="col"><center>No</center></th>
-                    <th scope="col"><center>Negara</center></th>
-                    <th scope="col"><center>Jumlah Positif</center></th>
-                    <th scope="col"><center>Jumlah Sembuh</center></th>
-                    <th scope="col"><center>Jumlah Meninggal</center></th>
-                  </tr>
-                </thead>
-              <tbody>
-              @php
-                $no = 1;
-              @endphp
-                @foreach($dunia as $data)
-                    <tr>
-                      <td> <?php echo $no++ ?></td>
-                      <td> <?php echo $data['attributes']['Country_Region'] ?></td>
-                      <td> <?php echo number_format($data['attributes']['Confirmed']) ?></td>
-                      <td><?php echo number_format($data['attributes']['Recovered'])?></td>
-                      <td><?php echo number_format($data['attributes']['Deaths'])?></td>
-                    </tr>
-                  @endforeach
-                </tbody>
-                
-              </table>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      </section>
+    
     <!-- ======== End Table Section Global ======= -->
 
     <!-- ======== Table Section Global ======= -->

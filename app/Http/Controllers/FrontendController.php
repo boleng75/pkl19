@@ -8,7 +8,7 @@ use App\Http\Models\Provinsi;
 use App\Http\Models\Kota;
 use App\Http\Models\Kecamatan;
 use App\Http\Models\Kelurahan;
-use App\Http\Models\RW;
+use App\Http\Models\Rw;
 use App\Http\Models\Kasus2;
 use Illuminate\Support\Carbon;
 
@@ -20,15 +20,26 @@ class FrontendController extends Controller
     public function index()
     {
         // Count Up
-        $positif = Kasus2::sum('positif');
-        $sembuh = Kasus2::sum('sembuh');
-        $meninggal = Kasus2::sum('meninggal');
-        
-        $global = file_get_contents('https://api.kawalcorona.com/positif');
-        $posglobal = json_decode($global, TRUE);
+        $positif = DB::table('rws')
+            ->select('kasus2s.jumlah_positif',
+            'kasus2s.jumlah_sembuh', 'kasus2s.jumlah_meninggal')
+            ->join('kasus2s','rws.id','=','kasus2s.id_rw')
+            ->sum('kasus2s.jumlah_positif'); 
+        $sembuh = DB::table('rws')
+            ->select('kasus2s.jumlah_positif',
+            'kasus2s.jumlah_sembuh','kasus2s.jumlah_meninggal')
+            ->join('kasus2s','rws.id','=','kasus2s.id_rw')
+            ->sum('kasus2s.jumlah_sembuh');
+        $meninggal = DB::table('rws')
+            ->select('kasus2s.jumlah_positif',
+            'kasus2s.jumlah_sembuh','kasus2s.jumlah_meninggal')
+            ->join('kasus2s','rws.id','=','kasus2s.id_rw')
+            ->sum('kasus2s.jumlah_meninggal');
+        // $global = file_get_contents('https://api.kawalcorona.com/positif');
+        // $posglobal = json_decode($global, TRUE);
 
         // Date
-        $tanggal = Carbon::now()->format('D d-M-Y');
+        $tanggal = Carbon::now()->isoFormat('dddd, D MMMM Y hh:mm:s');
 
         // Table Provinsi
         $tampil = DB::table('provinsis')
@@ -45,10 +56,10 @@ class FrontendController extends Controller
                   ->get();
 
         // Table Global
-        $datadunia= file_get_contents("https://api.kawalcorona.com/");
-        $dunia = json_decode($datadunia, TRUE);
+        // $datadunia= file_get_contents("https://api.kawalcorona.com/");
+        // $dunia = json_decode($datadunia, TRUE);
             
-        return view('front.welcome',compact('positif','sembuh','meninggal','posglobal', 'tanggal','tampil','dunia'));
+        return view('front.welcome',compact('positif','sembuh','meninggal','tanggal','tampil'));
     }
 
     /**

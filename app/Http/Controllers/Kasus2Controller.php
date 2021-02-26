@@ -15,7 +15,7 @@ class Kasus2Controller extends Controller
     
     public function index()
     {
-        $kasus2 = Kasus2::with('rw')->get();
+        $kasus2 = kasus2::with('rw')->get();
         return view('kasus2.index', compact('kasus2'));
     }
 
