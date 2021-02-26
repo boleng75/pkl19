@@ -20,9 +20,9 @@ class FrontendController extends Controller
     public function index()
     {
         // Count Up
-        $positif = App\Http\Models\Kasus2::sum('positif');
-        $sembuh = App\Http\Models\Kasus2::sum('sembuh');
-        $meninggal = App\Http\Models\Kasus2::sum('meninggal');
+        $positif = Kasus2::sum('positif');
+        $sembuh = Kasus2::sum('sembuh');
+        $meninggal = Kasus2::sum('meninggal');
         
         $global = file_get_contents('https://api.kawalcorona.com/positif');
         $posglobal = json_decode($global, TRUE);
