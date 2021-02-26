@@ -20,21 +20,10 @@ class FrontendController extends Controller
     public function index()
     {
         // Count Up
-        $positif = DB::table('rws')
-            ->select('kasus2s.jumlah_positif',
-            'kasus2s.jumlah_sembuh', 'kasus2s.jumlah_meninggal')
-            ->join('kasus2s','rws.id','=','kasus2s.id_rw')
-            ->sum('kasus2s.jumlah_positif'); 
-        $sembuh = DB::table('rws')
-            ->select('kasus2s.jumlah_positif',
-            'kasus2s.jumlah_sembuh','kasus2s.jumlah_meninggal')
-            ->join('kasus2s','rws.id','=','kasus2s.id_rw')
-            ->sum('kasus2s.jumlah_sembuh');
-        $meninggal = DB::table('rws')
-            ->select('kasus2s.jumlah_positif',
-            'kasus2s.jumlah_sembuh','kasus2s.jumlah_meninggal')
-            ->join('kasus2s','rws.id','=','kasus2s.id_rw')
-            ->sum('kasus2s.jumlah_meninggal');
+        $positif = Kasus2::sum('positif');
+        $sembuh = Kasus2::sum('sembuh');
+        $meninggal = Kasus2::sum('meninggal');
+        
         $global = file_get_contents('https://api.kawalcorona.com/positif');
         $posglobal = json_decode($global, TRUE);
 
