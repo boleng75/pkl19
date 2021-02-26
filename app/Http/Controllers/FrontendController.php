@@ -20,11 +20,9 @@ class FrontendController extends Controller
     public function index()
     {
         // Count Up
-        $positif = DB::table('rws')
-            ->select('kasus2s.jumlah_positif',
-            'kasus2s.jumlah_sembuh', 'kasus2s.jumlah_meninggal')
-            ->join('kasus2s','rws.id','=','kasus2s.id_rw')
-            ->sum('kasus2s.jumlah_positif'); 
+        $positif = DB::table('kasus2s')
+            ->select('jumlah_positif')
+            ->sum('jumlah_positif');
         $sembuh = DB::table('rws')
             ->select('kasus2s.jumlah_positif',
             'kasus2s.jumlah_sembuh','kasus2s.jumlah_meninggal')
@@ -39,7 +37,7 @@ class FrontendController extends Controller
         // $posglobal = json_decode($global, TRUE);
 
         // Date
-        $tanggal = Carbon::now()->isoFormat('dddd, D MMMM Y hh:mm:s');
+        $tanggal = Carbon::now()('dddd, D MMMM Y');
 
         // Table Provinsi
         $tampil = DB::table('provinsis')
